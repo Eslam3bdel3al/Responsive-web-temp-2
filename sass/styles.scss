@@ -1,0 +1,54 @@
+
+// _variables,_functions
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+$sizes: ( 25: 25%, 50: 50%, 75: 75%, 100: 100% ); //e.g., "w-lg-100"
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @each $size, $length in $sizes {
+      @include media-breakpoint-up($breakpoint) {
+        .w-#{$breakpoint}-#{$size} {width: $length !important;}
+      }
+    }
+  }
+
+@each $GD,$GDegree in $greens {
+  .bg-#{$GD}{
+    background-color: $GDegree;
+  }
+  .text-#{$GD}{
+    color: $GDegree;
+  }
+}
+
+  $swidths: (1:5px, 2: 10px, 3:15px, 4: 20px);
+  @each $sSize, $width in $swidths{
+    .scroll-w-#{$sSize}::-webkit-scrollbar {
+      width: $width;
+    }
+
+    .scroll-w-#{$sSize}::-webkit-scrollbar-track{
+      background-color: #f1f1f1;
+    }
+    .scroll-w-#{$sSize}::-webkit-scrollbar-thumb{
+      background-color: $green-600;
+    }
+    .scroll-w-#{$sSize}::-webkit-scrollbar-thumb:hover{
+      background-color: #555;
+    }
+  }
+  
+@each $code, $col in $theme-colors {
+  .hr-#{$code}{
+    border: 1px solid $col;
+  }
+
+  .triangle-#{$code}{
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 30px solid $col;
+  }
+}
+
+  
